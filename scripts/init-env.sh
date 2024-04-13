@@ -5,11 +5,11 @@ if [ ! -d downloads/CLIP ]; then
     exit 1
 fi
 
-CONDA_PREFIX=$(conda info --base)
+ENV_DIR=.env
 
-if [ ! -d $CONDA_PREFIX/envs/$VENV_NAME ]; then
+if [ ! -d $ENV_DIR/$VENV_NAME ]; then
     SYS_PYTHON_VERSION=$(python3 -c 'import sys; print(".".join(map(str, sys.version_info[:2])))')
-    conda create -n $VENV_NAME python=$SYS_PYTHON_VERSION -y
+    conda create -p .env/$VENV_NAME -y python=$SYS_PYTHON_VERSION 
 else
     echo "Conda environment '$VENV_NAME' already exists."
 fi
@@ -20,7 +20,7 @@ echo "Activating conda environment '$VENV_NAME'..."
 eval "$(conda shell.bash hook)"
 conda activate $VENV_NAME
 
-echo "Activated $(python --version) in ($CONDA_PREFIX/envs/$VENV_NAME)"
+echo "Activated $(python --version) in ($ENV_DIR/$VENV_NAME)"
 
 python3 -m pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
 python3 -m pip install -r requirements.txt
