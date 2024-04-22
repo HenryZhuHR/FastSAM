@@ -1,5 +1,5 @@
 MODEL_PATH="./weights/FastSAM-s.pt"
-IMAGE_PATH="images/IMG_8815.jpg"
+IMAGE_PATH="examples"
 
 
 # Everything mode

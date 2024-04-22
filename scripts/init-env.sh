@@ -31,7 +31,7 @@ echo "Activated $(python --version) in ($ENV_PATH)"
 
 # CUDA_VERSION
 python3 -m pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
-# python3 -m pip install -r requirements.txt
+python3 -m pip install -r requirements.txt
 
 pip check -r requirements.txt
 
