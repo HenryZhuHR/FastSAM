@@ -1,6 +1,12 @@
 .DS_Store
 weights
 
+# VuePress
+docs/.vuepress/.temp
+docs/.vuepress/.cache
+docs/.vuepress/dist
+node_modules
+
 gradio_cached_examples
 
 # Byte-compiled / optimized / DLL files
